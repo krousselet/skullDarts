@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AccountController!{% endblock %}
+
+{% block body %}
+<main>
+    <div class="title-container">
+        <h1>Bienvenue {{ user.prenom }} !</h1>
+    </div>
+    <div class="content-container">
+        <p>Vos informations :</p>
+    </div>
+    <div class="data-container">
+        <div class="content-container">
+            <p>Nom :</p>
+        </div>
+        <div class="content-container">
+            <p>{{ user.nom }}</p>
+        </div>
+    </div>
+    <div class="data-container">
+        <div class="content-container">
+            <p>Prenom :</p>
+        </div>
+        <div class="content-container">
+            <p>{{ user.prenom }}</p>
+        </div>
+    </div>
+    <div class="data-container">
+        <div class="content-container">
+            <p>Email :</p>
+        </div>
+        <div class="content-container">
+            <p>{{ user.email }}</p>
+        </div>
+    </div>
+    <div class="data-container">
+        <div class="content-container">
+            <p>Telephone :</p>
+        </div>
+        <div class="content-container">
+            <p>{{ user.telephone }}</p>
+        </div>
+    </div>
+    <div class="data-container">
+        <div class="content-container">
+            <p>Verification :</p>
+        </div>
+        <div class="content-container">
+            {% if user.isVerified %}
+                <p>Vefifie</p>
+            {% else %}
+                <p>Non verifie</p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="data-container">
+        <div class="content-container">
+            {% if user.isAgreed %}
+                <p>Pacte accepté</p>
+            {% else %}
+                <p>Pacte refusé</p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="data-container">
+        <div class="content-container">
+            <p>Inscription :</p>
+        </div>
+        <div class="content-container">
+            <p>{{ user.creation|date('d-m-Y H:i:s') }}</p>
+        </div>
+    </div>
+</main>
+{% endblock %}

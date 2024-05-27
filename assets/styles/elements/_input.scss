@@ -1,0 +1,24 @@
+input {
+  border: 0;
+  padding: 0;
+  border-bottom: 1px solid black;
+  transition: .3s ease;
+
+  &:active {
+    border: 0 !important;
+    outline: 1px solid black !important;
+    padding: 3px;
+    border-bottom: 1px solid red;
+    transition: .3s ease;
+    border-radius: 7px;
+  }
+
+  &:focus {
+    border: 0 !important;
+    outline: 1px solid black !important;
+    padding: 3px;
+    border-bottom: 1px solid red;
+    transition: .3s ease;
+    border-radius: 7px;
+  }
+}

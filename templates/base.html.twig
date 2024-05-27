@@ -1,17 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+        <link rel="stylesheet" href="{{ asset('styles/app.scss') }}">
         {% block stylesheets %}
+
         {% endblock %}
 
         {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
+            {{ importmap('app') }}
         {% endblock %}
     </head>
     <body>
+        <header>
+            <nav>
+                <div id="logo-container">
+                    <img src="{{ asset('./images/logo/logo.svg') }}" alt="image du logo skulldarts" id="logo">
+                </div>
+                <div class="hamburger">
+                    <div class="upper"></div>
+                    <div class="middle"></div>
+                    <div class="lower"></div>
+                </div>
+                <div class="desktop-menu">
+                    <ul>
+                        <li><a href="{{ path('app_main') }}">Home</a></li>
+                        <li><a href="#">Loi</a></li>
+                        <li><a href="#">Pacte</a></li>
+                        {% if app.user %}
+                        <li><a href="{{ path('app_account') }}">Compte</a></li>
+                        <li><a href="{{ path('app_logout') }}">Deconnexion</a></li>
+                        {% else %}
+                        <li><a href="{{ path('app_login') }}">Connexion</a></li>
+                        <li><a href="{{ path('app_register') }}">Enregistrement</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div class="mobile-menu">
+            <ul>
+                <li><a href="{{ path('app_main') }}">Home</a></li>
+                <li><a href="#">Loi</a></li>
+                <li><a href="#">Pacte</a></li>
+                {% if app.user %}
+                <li><a href="{{ path('app_account') }}">Compte</a></li>
+                {% else %}
+                <li><a href="{{ path('app_login') }}">Connexion</a></li>
+                <li><a href="{{ path('app_register') }}">Enregistrement</a></li>
+                {% endif %}
+            </ul>
+        </div>
         {% block body %}{% endblock %}
     </body>
 </html>

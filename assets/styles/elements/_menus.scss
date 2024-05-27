@@ -1,0 +1,47 @@
+.mobile-menu {
+  @media (min-width: 320px) and (max-width: 991px) {
+    display: none;
+  }
+  @media (min-width: 991px) {
+    display: none;
+  }
+}
+
+.mobile-menu-active {
+  @media (min-width: 320px) and (max-width: 991px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 350px;
+    background-color: red;
+    margin: 0 auto;
+  }
+  @media (min-width: 991px) {
+    display: none;
+  }
+}
+
+.desktop-menu {
+  @media (min-width: 320px) and (max-width: 991px) {
+    display: none;
+  }
+  @media (min-width: 991px) {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+    margin: 0 auto;
+  }
+
+  ul {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+  }
+}

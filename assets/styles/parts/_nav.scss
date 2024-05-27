@@ -1,0 +1,74 @@
+header {
+  display: flex;
+  width: 100%;
+  height: 70px;
+  margin: 0 auto;
+
+  nav {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+
+    #logo-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 70px;
+      height: 70px;
+
+      #logo {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .hamburger {
+      @media (min-width: 320px) and (max-width: 991px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 70px;
+        height: 70px;
+      }
+      @media (min-width: 991px) {
+        display: none;
+      }
+
+      .upper, .middle, .lower {
+        position: absolute;
+        top: 25%;
+        background-color: black;
+        height: 2px;
+        width: 50%;
+        transition: .3s ease;
+      }
+
+      .middle {
+        top: 50%;
+      }
+
+      .lower {
+        top: 75%;
+      }
+
+      .upper-active, .middle-active, .lower-active {
+        transition: .3s ease;
+        top: 50%;
+        transform: rotate(135deg);
+      }
+
+      .middle-active {
+        opacity: 0;
+        transform: rotate(360deg);
+      }
+
+      .lower-active {
+        transform: rotate(-135deg);
+      }
+    }
+  }
+}

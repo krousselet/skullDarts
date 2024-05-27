@@ -1,0 +1,13 @@
+.data-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @media (min-width: 320px) and (max-width: 991px) {
+    width: 300px;
+    margin: 0 auto;
+  }
+  @media (min-width: 991px) {
+    width: 50%;
+    margin: 0 auto;
+  }
+}
