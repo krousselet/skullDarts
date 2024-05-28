@@ -20,7 +20,7 @@
     </div>
     <div class="data-container">
         <div class="content-container">
-            <p>Prenom :</p>
+            <p>Prénom :</p>
         </div>
         <div class="content-container">
             <p>{{ user.prenom }}</p>
@@ -36,7 +36,7 @@
     </div>
     <div class="data-container">
         <div class="content-container">
-            <p>Telephone :</p>
+            <p>Téléphone :</p>
         </div>
         <div class="content-container">
             <p>{{ user.telephone }}</p>
@@ -48,9 +48,9 @@
         </div>
         <div class="content-container">
             {% if user.isVerified %}
-                <p>Vefifie</p>
+                <p>Vérifié</p>
             {% else %}
-                <p>Non verifie</p>
+                <p>Non vérifié</p>
             {% endif %}
         </div>
     </div>
@@ -60,6 +60,18 @@
                 <p>Pacte accepté</p>
             {% else %}
                 <p>Pacte refusé</p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="data-container">
+        <div class="content-container">
+            <p>Cotisation :</p>
+        </div>
+        <div class="content-container">
+            {% if user.cotisation %}
+                <p>Payée</p>
+            {% else %}
+                <p>Non payée</p>
             {% endif %}
         </div>
     </div>

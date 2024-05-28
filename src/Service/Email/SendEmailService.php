@@ -3,17 +3,26 @@
 namespace App\Service\Email;
 
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
+use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\MailerInterface;
 
 class SendEmailService
 {
     private MailerInterface $mailer;
 
-    public function __construct(MailerInterface $mailer)
+    public function __construct(
+        MailerInterface $mailer,
+        #[Autowire('%app.devemail%')] private string $from,
+    )
     {
         $this->mailer = $mailer;
+        $this->from = $from;
     }
 
+    /**
+     * @throws TransportExceptionInterface
+     */
     public function send(
         string $from,
         string $to,

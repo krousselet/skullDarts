@@ -5,6 +5,7 @@
   @media (min-width: 320px) and (max-width: 991px) {
     width: 300px;
     margin: 0 auto;
+    flex-direction: column;
   }
   @media (min-width: 991px) {
     width: 50%;

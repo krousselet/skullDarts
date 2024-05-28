@@ -14,6 +14,13 @@
         {% endblock %}
     </head>
     <body>
+    {% for messages in app.flashes %}
+        {% for message in messages %}
+            <div class="data-container">
+                <p>{{ message|raw }}</p>
+            </div>
+        {% endfor %}
+    {% endfor %}
         <header>
             <nav>
                 <div id="logo-container">

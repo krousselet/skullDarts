@@ -6,6 +6,7 @@
 parameters:
     app.jwtsecret: '%env(APP_JWT_SECRET)%'
     app.devemail: '%env(APP_DEV_EMAIL)%'
+
 services:
     # default configuration for services in *this* file
     _defaults:

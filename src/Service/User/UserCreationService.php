@@ -29,6 +29,7 @@ class UserCreationService
         );
         $user->setCreation($now);
         $user->setModification($now);
+        $user->setCotisation(false);
         $user->setNom($formData['nom']);
         $user->setPrenom($formData['prenom']);
         $user->setTelephone($formData['telephone']);
