@@ -3,3 +3,18 @@ a {
   color: black;
   cursor: pointer;
 }
+
+.anchor-nav {
+  @media (min-width: 320px) and (max-width: 991px) {
+    font-size: 30px;
+    letter-spacing: 2px;
+  }
+  @media (min-width: 991px) and (max-width: 1499px) {
+    font-size: 30px;
+    letter-spacing: 2px;
+  }
+  @media (min-width: 1499px) and (max-width: 3080px) {
+    font-size: 40px;
+    letter-spacing: 3px;
+  }
+}

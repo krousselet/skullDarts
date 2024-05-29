@@ -41,10 +41,11 @@ header {
       .upper, .middle, .lower {
         position: absolute;
         top: 25%;
-        background-color: black;
+        background-color: transparent;
         height: 2px;
         width: 50%;
         transition: .3s ease;
+        outline: 1px solid black;
       }
 
       .middle {

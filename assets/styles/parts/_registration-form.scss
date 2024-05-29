@@ -1,0 +1,67 @@
+#registration-form {
+  @media (min-width: 320px) and (max-width: 991px) {
+    width: 95%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .title-container {
+
+    h1 {
+
+    }
+  }
+  .form-group {
+    flex-direction: column;
+    @media (min-width: 320px) and (max-width: 991px) {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 auto;
+    }
+    @media (min-width: 320px) and (max-width: 991px) {
+      width: 70%;
+    }
+
+  }
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    label, input {
+      @media (min-width: 320px) and (max-width: 991px) {
+        font-size: 12px;
+      }
+      @media (min-width: 991px) and (max-width: 1499px) {
+        font-size: 32px;
+      }
+      @media (min-width: 1499px) and (max-width: 3080px) {
+        font-size: 42px;
+      }
+    }
+  }
+}
+
+#register {
+  @media (min-width: 320px) and (max-width: 991px) {
+    padding: 10px;
+    margin-top: 15px;
+  }
+  @media (min-width: 991px) and (max-width: 1499px) {
+    padding: 30px;
+    margin-top: 50px;
+    font-size: 32px;
+  }
+  @media (min-width: 1499px) and (max-width: 3080px) {
+    padding: 35px;
+    margin-top: 55px;
+    font-size: 40px;
+  }
+
+}

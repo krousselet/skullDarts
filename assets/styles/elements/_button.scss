@@ -3,4 +3,26 @@ button {
   outline: none;
   border: none;
   cursor: pointer;
+  font-family: "DragonSlayer", sans-serif;
+  @media (min-width: 320px) and (max-width: 991px) {
+    font-size: 24px;
+    letter-spacing: 4px;
+    padding: 15px;
+  }
+  @media (min-width: 991px) and (max-width: 1499px) {
+    font-size: 24px;
+    letter-spacing: 5px;
+    padding: 10px;
+  }
+}
+
+#login {
+  @media (min-width: 320px) and (max-width: 991px) {
+    margin-top: 15px;
+  }
+  @media (min-width: 1499px) and (max-width: 3080px) {
+    margin-top: 15px;
+    letter-spacing: 14px;
+    font-size: 40px;
+  }
 }

@@ -40,14 +40,16 @@
         #}
         <div class="data-container">
             <div class="button-container">
-                <button class="btn" type="submit">
+                <button class="btn" id="login" type="submit">
                     Connexion
                 </button>
             </div>
-            <ul>
-                <li><a href="{{ path('app_register') }}">Inscription</a></li>
-                <li><a href="{{ path('app_forgot_password_request') }}">Mot de passe oublié ?</a></li>
-            </ul>
+            <div class="list-container">
+                <ul>
+                    <li><a class="login" href="{{ path('app_register') }}">Inscription</a></li>
+                    <li><a class="login" href="{{ path('app_forgot_password_request') }}">Mot de passe oublié</a></li>
+                </ul>
+            </div>
         </div>
 
     </form>

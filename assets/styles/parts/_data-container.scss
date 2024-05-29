@@ -7,8 +7,15 @@
     margin: 0 auto;
     flex-direction: column;
   }
-  @media (min-width: 991px) {
+  @media (min-width: 991px) and (max-width: 1499px) {
     width: 50%;
+    justify-content: space-around;
     margin: 0 auto;
+  }
+
+  .button-container {
+    display: flex;
+    align-items: center;
+
   }
 }

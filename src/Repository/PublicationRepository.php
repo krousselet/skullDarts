@@ -16,6 +16,17 @@ class PublicationRepository extends ServiceEntityRepository
         parent::__construct($registry, Publication::class);
     }
 
+    public function findPublicationWithDetail(int $id): ?Publication
+    {
+        return $this->createQueryBuilder('p')
+            ->leftJoin('p.detail', 'd') // Assuming the OneToOne field is named 'detail'
+            ->addSelect('d')
+            ->where('p.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+
     //    /**
     //     * @return Publication[] Returns an array of Publication objects
     //     */

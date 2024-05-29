@@ -20,25 +20,25 @@ class RegistrationFormType extends AbstractType
     {
         $builder
             ->add('email', TextType::class, [
-                'label' => 'Email : ',
+                'label' => 'Email',
                 'attr' => [
                     'placeholder' => 'Renseignez une adresse email...'
                 ]
             ])
             ->add('nom', TextType::class, [
-                'label' => 'Nom :',
+                'label' => 'Nom',
                 'attr' => [
                     'placeholder' => 'Renseignez votre nom...'
                 ]
             ])
             ->add('prenom', TextType::class, [
-                'label' => 'Prenom :',
+                'label' => 'Prenom',
                 'attr' => [
                     'placeholder' => 'Renseignez votre prenom...'
                 ]
             ])
             ->add('telephone', TextType::class, [
-                'label' => 'Telephone :',
+                'label' => 'Telephone',
                 'attr' => [
                     'placeholder' => 'Renseignez un numéro de telephone...'
                 ]
@@ -66,7 +66,7 @@ class RegistrationFormType extends AbstractType
                     ]
                 ],
                 'first_options'  => [
-                    'label' => 'Mot de passe : ',
+                    'label' => 'Mot de passe',
                     'attr' => [
                         'placeholder' => 'Renseignez votre mot de passe...'
                     ],
@@ -83,7 +83,7 @@ class RegistrationFormType extends AbstractType
                     ],
                 ],
                 'second_options'  => [
-                    'label' => 'Verification : ',
+                    'label' => 'Verification',
                     'attr' => [
                         'placeholder' => 'Faites correspondre votre mot de passe...'
                     ],

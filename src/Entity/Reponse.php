@@ -17,11 +17,14 @@ class Reponse
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $creation = null;
 
-    #[ORM\ManyToOne(inversedBy: 'reponses')]
-    private ?Commentaire $commentaire_id = null;
+    #[ORM\ManyToOne(targetEntity: Commentaire::class, inversedBy: 'reponses')]
+    private ?Commentaire $commentaire = null;
 
-    #[ORM\ManyToOne(inversedBy: 'utilisateur_reponses')]
-    private ?Utilisateur $utilisateur_id = null;
+    #[ORM\ManyToOne(targetEntity: Utilisateur::class, inversedBy: 'reponses')]
+    private ?Utilisateur $utilisateur = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $contenu = null;
 
     public function getId(): ?int
     {
@@ -40,26 +43,38 @@ class Reponse
         return $this;
     }
 
-    public function getCommentaireId(): ?Commentaire
+    public function getCommentaire(): ?Commentaire
     {
-        return $this->commentaire_id;
+        return $this->commentaire;
     }
 
-    public function setCommentaireId(?Commentaire $commentaire_id): static
+    public function setCommentaire(?Commentaire $commentaire): static
     {
-        $this->commentaire_id = $commentaire_id;
+        $this->commentaire = $commentaire;
 
         return $this;
     }
 
-    public function getUtilisateurId(): ?Utilisateur
+    public function getUtilisateur(): ?Utilisateur
     {
-        return $this->utilisateur_id;
+        return $this->utilisateur;
     }
 
-    public function setUtilisateurId(?Utilisateur $utilisateur_id): static
+    public function setUtilisateur(?Utilisateur $utilisateur): static
     {
-        $this->utilisateur_id = $utilisateur_id;
+        $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
+
+    public function getContenu(): ?string
+    {
+        return $this->contenu;
+    }
+
+    public function setContenu(string $contenu): static
+    {
+        $this->contenu = $contenu;
 
         return $this;
     }

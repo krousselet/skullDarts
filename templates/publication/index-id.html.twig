@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ publication.titre }}{% endblock %}
+
+{% block body %}
+    <main>
+        <div id="publication-container">
+            <div class="title-container">
+                <h1>{{ publication.titre }}</h1>
+            </div>
+            <div class="paragraph-container">
+                <p>{{ publication.paragraphe0|raw }}</p>
+            </div>
+            <div class="paragraph-container">
+                <p>{{ publication.paragraphe1|raw }}</p>
+            </div>
+            <div class="paragraph-container">
+                <p>{{ publication.paragraphe2|raw }}</p>
+            </div>
+            <div class="paragraph-container">
+                <p>{{ publication.paragraphe3|raw }}</p>
+            </div>
+            <div class="paragraph-container">
+                <p>{{ publication.paragraphe4|raw }}</p>
+            </div>
+            <div class="details-container">
+                <ul>
+                    <li>
+                        <p>{{ publication.detail.heure|raw }}</p>
+                        <p>{{ publication.detail.prix|raw }}</p>
+                        <p>{{ publication.detail.activite0|raw }}</p>
+                        <p>{{ publication.detail.activite1|raw }}</p>
+                        <p>{{ publication.detail.activite2|raw }}</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <a href="{{ path('app_publication') }}">Retour</a>
+    </main>
+{% endblock %}

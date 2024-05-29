@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Publications{% endblock %}
+
+{% block body %}
+    <main>
+        <div class="data-container">
+            <ul>
+                {% for publication in publications %}
+                    <li>
+                        <a href="{{ path('app_publication_show', {'id': publication.id}) }}">
+                            {{ publication.titre }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </main>
+{% endblock %}

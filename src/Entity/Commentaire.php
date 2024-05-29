@@ -16,9 +16,6 @@ class Commentaire
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 100)]
-    private ?string $titre = null;
-
     #[ORM\Column(type: Types::TEXT)]
     private ?string $contenu = null;
 
@@ -31,29 +28,38 @@ class Commentaire
     /**
      * @var Collection<int, Reponse>
      */
-    #[ORM\OneToMany(targetEntity: Reponse::class, mappedBy: 'commentaire_id')]
+    #[ORM\OneToMany(targetEntity: Reponse::class, mappedBy: 'commentaire')]
     private Collection $reponses;
+
+    #[ORM\ManyToOne(targetEntity: Publication::class, inversedBy: 'commentaires')]
+    private ?Publication $publication = null;
+
+    #[ORM\ManyToOne(inversedBy: 'commentaires')]
+    private ?Utilisateur $utilisateur = null;
 
     public function __construct()
     {
         $this->reponses = new ArrayCollection();
+        $this->creation = new \DateTime();
+        $this->modification = new \DateTime();
+    }
+
+    #[ORM\PrePersist]
+    public function onPrePersist(): void
+    {
+        $this->creation = new \DateTime();
+        $this->modification = clone $this->creation;
+    }
+
+    #[ORM\PreUpdate]
+    public function onPreUpdate(): void
+    {
+        $this->modification = new \DateTime();
     }
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getTitre(): ?string
-    {
-        return $this->titre;
-    }
-
-    public function setTitre(string $titre): static
-    {
-        $this->titre = $titre;
-
-        return $this;
     }
 
     public function getContenu(): ?string
@@ -104,7 +110,7 @@ class Commentaire
     {
         if (!$this->reponses->contains($reponse)) {
             $this->reponses->add($reponse);
-            $reponse->setCommentaireId($this);
+            $reponse->setCommentaire($this);
         }
 
         return $this;
@@ -114,11 +120,40 @@ class Commentaire
     {
         if ($this->reponses->removeElement($reponse)) {
             // set the owning side to null (unless already changed)
-            if ($reponse->getCommentaireId() === $this) {
-                $reponse->setCommentaireId(null);
+            if ($reponse->getCommentaire() === $this) {
+                $reponse->setCommentaire(null);
             }
         }
 
         return $this;
+    }
+
+    public function getPublication(): ?Publication
+    {
+        return $this->publication;
+    }
+
+    public function setPublication(?Publication $publication): static
+    {
+        $this->publication = $publication;
+
+        return $this;
+    }
+
+    public function getUtilisateur(): ?Utilisateur
+    {
+        return $this->utilisateur;
+    }
+
+    public function setUtilisateur(?Utilisateur $utilisateur): static
+    {
+        $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->utilisateur;
     }
 }
