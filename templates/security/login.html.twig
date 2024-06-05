@@ -1,9 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Connexion{% endblock %}
 
 {% block javascripts %}
-    {{ parent() }}
+    {% block importmap %}
+        {{ importmap('login') }}
+    {% endblock %}
 {% endblock %}
 
 {% block body %}

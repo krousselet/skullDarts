@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SondageController!{% endblock %}
+{% block importmap %}
+        {{ importmap('hamburger') }}
+{% endblock %}
+{% block body %}
+        {% include 'partials/sondage/_sondage.html.twig' %}
+{% endblock %}

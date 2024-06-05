@@ -1,0 +1,18 @@
+.loi-content-container {
+  @media (min-width: 320px) and (max-width: 550px) {
+    width: 95%;
+    font-size: 14px;
+  }
+  @media (min-width: 320px) and (max-width: 991px) {
+    font-size: 20px;
+    width: 85%;
+  }
+  @media (min-width: 991px) and (max-width: 1499px) {
+    width: 75%;
+    font-size: 24px;
+  }
+  @media (min-width: 1499px) and (max-width: 3080px) {
+    width: 50%;
+    font-size: 34px;
+  }
+}

@@ -1,0 +1,17 @@
+<main>
+    <div id="sondage-container">
+        <ul>
+            {% for sondage in sondages %}
+                <li>
+                    <p>{{ sondage.date | date('d-m-Y') }}</p>
+                    {% if userVotes[sondage.id] %}
+                        <p>Voté</p>
+                    {% else %}
+                        <a href="{{ path('vote_sondage', { 'id': sondage.id }) }}">Voter</a>
+                    {% endif %}
+                    <a href="{{ path('resultat_sondage', { 'id': sondage.id }) }}">Consulter</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</main>

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Résultats du Sondage{% endblock %}
+
+{% block body %}
+    <main>
+        <div class="title-container">
+            <h1>{{ sondage.question }}</h1>
+        </div>
+        <p>{{ sondage.date|date('d-m-Y') }}</p>
+        <div id="result-container">
+            <div id="users">
+                <p>Utilisateurs</p>
+                {% for vote in votes %}
+                <p>{{ vote.user.prenom }}</p>
+                {% endfor %}
+            </div>
+            <div id="votes">
+                <p>Votes</p>
+                {% for vote in votes %}
+                <p>{{ vote.vote }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+{% endblock %}

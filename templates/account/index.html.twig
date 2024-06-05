@@ -1,7 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Hello AccountController!{% endblock %}
-
+{% block importmap %}
+    {{ importmap( 'hamburger') }}
+{% endblock %}
 {% block body %}
 <main>
     <div class="title-container">

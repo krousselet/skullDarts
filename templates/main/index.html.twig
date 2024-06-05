@@ -1,6 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MainController!{% endblock %}
-
+{% block title %}Home{% endblock %}
+{% block importmap %}
+    {{ importmap( 'home') }}
+{% endblock %}
 {% block body %}
+    <main>
+        <div class="image-container glass-red">
+            <img src="{{ asset('./images/mobile/hell-monkey.svg') }}" alt="image d'un singe faisant de la batterie">
+        </div>
+        <div class="catch-container">
+
+        </div>
+    </main>
 {% endblock %}

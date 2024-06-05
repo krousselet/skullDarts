@@ -1,0 +1,64 @@
+.title-container + p {
+  text-align: center;
+  @media (min-width: 320px) and (max-width: 550px) {
+    text-align: center;
+    font-size: 20px;
+  }
+  @media (min-width: 550px) and (max-width: 991px) {
+    font-size: 24px;
+    width: 90%;
+  }
+  @media (min-width: 550px) and (max-width: 991px) {
+    font-size: 24px;
+    width: 90%;
+  }
+  @media (min-width: 991px) and (max-width: 1499px) {
+    font-size: 32px;
+    width: 75%;
+  }
+  @media (min-width: 1499px) and (max-width: 3080px) {
+    font-size: 38px;
+    width: 50%;
+  }
+}
+
+#result-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  @media (min-width: 320px) and (max-width: 550px) {
+    width: 95%;
+  }
+  @media (min-width: 550px) and (max-width: 991px) {
+    font-size: 24px;
+    width: 90%;
+  }
+  @media (min-width: 991px) and (max-width: 1499px) {
+    font-size: 32px;
+    width: 75%;
+  }
+  @media (min-width: 1499px) and (max-width: 3080px) {
+    font-size: 38px;
+    width: 50%;
+  }
+
+  #users {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    @media (min-width: 320px) and (max-width: 550px) {
+      width: 50%;
+    }
+  }
+
+  #votes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    @media (min-width: 320px) and (max-width: 550px) {
+      width: 50%;
+    }
+  }
+}

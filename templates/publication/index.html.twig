@@ -1,13 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Publications{% endblock %}
-
 {% block body %}
     <main>
-        <div class="data-container">
+        <div id="publication-container">
             <ul>
                 {% for publication in publications %}
-                    <li>
+                    <li class="x">
                         <a href="{{ path('app_publication_show', {'id': publication.id}) }}">
                             {{ publication.titre }}
                         </a>

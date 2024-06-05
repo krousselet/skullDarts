@@ -1,0 +1,15 @@
+<main>
+    {{ form_errors(voteForm) }}
+    <div class="title-container">
+        <h1>Serez-vous là le | {{ sondage.date |date('d-m-Y') }} | ?</h1>
+    </div>
+    {{ form_start(voteForm, {'attr': {'id': 'vote-form'}}) }}
+    <div class="form-group">
+        {{ form_row(voteForm.vote, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary" id="vote">Voter</button>
+
+    <!-- End the form -->
+    {{ form_end(voteForm) }}
+</main>

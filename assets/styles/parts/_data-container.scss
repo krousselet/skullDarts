@@ -1,17 +1,35 @@
 .data-container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   @media (min-width: 320px) and (max-width: 991px) {
     width: 300px;
     margin: 0 auto;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
   }
-  @media (min-width: 991px) and (max-width: 1499px) {
+  @media (min-width: 991px) and (max-width: 3080px) {
     width: 50%;
-    justify-content: space-around;
     margin: 0 auto;
+    justify-content: space-between;
   }
+
+
+    .content-container {
+      //width: 100%;
+      p {
+        @media (min-width: 320px) and (max-width: 991px) {
+          font-size: 16px;
+        }
+        @media (min-width: 991px) and (max-width: 1499px) {
+          font-size: 24px;
+        }
+        @media (min-width: 1499px) and (max-width: 3080px) {
+          font-size: 32px;
+        }
+      }
+    }
+
+
 
   .button-container {
     display: flex;

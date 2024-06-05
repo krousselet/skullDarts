@@ -1,0 +1,17 @@
+::placeholder {
+  font-family: 'DragonSlayer', sans-serif;
+  @media (min-width: 320px) and (max-width: 991px) {
+    font-size: 12px;
+  }
+  @media (min-width: 991px) and (max-width: 1499px) {
+    font-size: 20px;
+  }
+  @media (min-width: 1499px) and (max-width: 3080px) {
+    font-size: 30px;
+  }
+}
+
+:disabled {
+  transition: .3s ease;
+  opacity: .3;
+}

@@ -1,0 +1,47 @@
+@keyframes x {
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes y {
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes appear {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(315deg);
+  }
+}
+
+@keyframes blink {
+  0% {
+    box-shadow: 0 0 10px white;
+  }
+
+  50% {
+    box-shadow: 0 0 25px white;
+  }
+
+  75% {
+  box-shadow: 0 0 5px white;
+}
+
+  100% {
+    box-shadow: 0 0 10px white;
+  }
+}
+
+@keyframes animated {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

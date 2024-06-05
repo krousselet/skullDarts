@@ -1,7 +1,27 @@
 a {
   text-decoration: none;
-  color: black;
   cursor: pointer;
+  color: white;
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  @media (min-width: 991px) {
+    &::before {
+      content: '';
+      position: absolute;
+      top: 100%;
+      width: 0;
+      height: 2px;
+      background-color: white;
+      transition: width .2s ease;
+    }
+
+    &:hover::before {
+      width: 100%;
+      transition: width .2s ease;
+    }
+  }
 }
 
 .anchor-nav {
@@ -17,4 +37,8 @@ a {
     font-size: 40px;
     letter-spacing: 3px;
   }
+}
+
+table {
+  color: white;
 }

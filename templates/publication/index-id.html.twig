@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}{{ publication.titre }}{% endblock %}
-
 {% block body %}
     <main>
         <div id="publication-container">
@@ -24,15 +23,17 @@
                 <p>{{ publication.paragraphe4|raw }}</p>
             </div>
             <div class="details-container">
-                <ul>
-                    <li>
-                        <p>{{ publication.detail.heure|raw }}</p>
-                        <p>{{ publication.detail.prix|raw }}</p>
-                        <p>{{ publication.detail.activite0|raw }}</p>
-                        <p>{{ publication.detail.activite1|raw }}</p>
-                        <p>{{ publication.detail.activite2|raw }}</p>
-                    </li>
-                </ul>
+                {% if publication.detail %}
+                    <ul>
+                        <li>
+                            <p>{{ publication.detail.heure|raw }}</p>
+                            <p>{{ publication.detail.prix|raw }}</p>
+                            <p>{{ publication.detail.activite0|raw }}</p>
+                            <p>{{ publication.detail.activite1|raw }}</p>
+                            <p>{{ publication.detail.activite2|raw }}</p>
+                        </li>
+                    </ul>
+                {% endif %}
             </div>
         </div>
         <a href="{{ path('app_publication') }}">Retour</a>

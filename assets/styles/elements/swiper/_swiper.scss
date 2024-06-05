@@ -1,0 +1,24 @@
+.swiper {
+  @media (min-width: 320px) and (max-width: 550px) {
+    max-width: 95%;
+    height: 100%;
+    font-size: 16px;
+
+  }
+  @media (min-width: 550px) and (max-width: 991px) {
+    max-width: 75%;
+    margin: 0 auto;
+    height: 100%;
+    font-size: 22px;
+  }
+  @media (min-width: 991px) and (max-width: 1499px) {
+    max-width: 50%;
+    height: 100%;
+    font-size: 28px;
+  }
+  @media (min-width: 1499px) and (max-width: 3080px) {
+    max-width: 33%;
+    height: 100%;
+    font-size: 32px;
+  }
+}

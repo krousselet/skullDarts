@@ -13,6 +13,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\PasswordStrength;
 
 class RegistrationFormType extends AbstractType
 {
@@ -22,26 +23,70 @@ class RegistrationFormType extends AbstractType
             ->add('email', TextType::class, [
                 'label' => 'Email',
                 'attr' => [
-                    'placeholder' => 'Renseignez une adresse email...'
-                ]
+                    'placeholder' => '10 caractères minimum'
+                ],
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Le champs ne peut pas être vide...',
+                    ]),
+                    new Length([
+                        'min' => 10,
+                        'minMessage' => 'Votre email doit contenir au moins {{ limit }} caractères et un "@"',
+                        // max length allowed by Symfony for security reasons
+                        'max' => 4096,
+                    ]),
+                ],
             ])
             ->add('nom', TextType::class, [
                 'label' => 'Nom',
                 'attr' => [
-                    'placeholder' => 'Renseignez votre nom...'
-                ]
+                    'placeholder' => '3 caractères minimum'
+                ],
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Le champs ne peut pas être vide...',
+                    ]),
+                    new Length([
+                        'min' => 3,
+                        'minMessage' => 'Votre nom doit contenir au moins {{ limit }} caractères et un "@"',
+                        // max length allowed by Symfony for security reasons
+                        'max' => 4096,
+                    ]),
+                ],
             ])
             ->add('prenom', TextType::class, [
                 'label' => 'Prenom',
                 'attr' => [
-                    'placeholder' => 'Renseignez votre prenom...'
-                ]
+                    'placeholder' => '3 caractères minimum'
+                ],
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Le champs ne peut pas être vide...',
+                    ]),
+                    new Length([
+                        'min' => 3,
+                        'minMessage' => 'Votre prenom doit contenir au moins {{ limit }} caractères et un "@"',
+                        // max length allowed by Symfony for security reasons
+                        'max' => 4096,
+                    ]),
+                ],
             ])
             ->add('telephone', TextType::class, [
                 'label' => 'Telephone',
                 'attr' => [
-                    'placeholder' => 'Renseignez un numéro de telephone...'
-                ]
+                    'placeholder' => '10 caractères minimum'
+                ],
+                'constraints' => [
+                    new NotBlank([
+                        'message' => 'Le champs ne peut pas être vide...',
+                    ]),
+                    new Length([
+                        'min' => 10,
+                        'minMessage' => 'Votre telephone doit contenir au moins {{ limit }} caractères et un "@"',
+                        // max length allowed by Symfony for security reasons
+                        'max' => 4096,
+                    ]),
+                ],
             ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
@@ -68,7 +113,7 @@ class RegistrationFormType extends AbstractType
                 'first_options'  => [
                     'label' => 'Mot de passe',
                     'attr' => [
-                        'placeholder' => 'Renseignez votre mot de passe...'
+                        'placeholder' => 'Complexité minimale: Fort'
                     ],
                     'constraints' => [
                         new NotBlank([
@@ -80,6 +125,9 @@ class RegistrationFormType extends AbstractType
                             // max length allowed by Symfony for security reasons
                             'max' => 4096,
                         ]),
+                        new PasswordStrength(
+                            minScore: PasswordStrength::STRENGTH_STRONG
+                        )
                     ],
                 ],
                 'second_options'  => [
@@ -97,6 +145,9 @@ class RegistrationFormType extends AbstractType
                             // max length allowed by Symfony for security reasons
                             'max' => 4096,
                         ]),
+                        new PasswordStrength(
+                            minScore: PasswordStrength::STRENGTH_STRONG
+                        )
                     ],
                 ],
             ])

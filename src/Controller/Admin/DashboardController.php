@@ -7,6 +7,7 @@ use App\Entity\Detail;
 use App\Entity\Image;
 use App\Entity\Publication;
 use App\Entity\Reponse;
+use App\Entity\Sondage;
 use App\Entity\Utilisateur;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -60,6 +61,11 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::subMenu('Actions sur les details', 'fas fa-bars')->setSubItems([
             MenuItem::linkToCrud('Voir mes details', 'fas fa-eye', Detail::class),
             MenuItem::linkToCrud('Ajouter des details', 'fas fa-plus', Detail::class)->setAction(crud::PAGE_NEW),
+        ]);
+        yield MenuItem::section('Sondages');
+        yield MenuItem::subMenu('Actions sur les sondages', 'fas fa-bars')->setSubItems([
+            MenuItem::linkToCrud('Voir mes sondages', 'fas fa-eye', Sondage::class),
+            MenuItem::linkToCrud('Ajouter un sondage', 'fas fa-plus', Sondage::class)->setAction(crud::PAGE_NEW),
         ]);
     }
 }
