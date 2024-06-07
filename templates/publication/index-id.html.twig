@@ -36,6 +36,10 @@
                 {% endif %}
             </div>
         </div>
+        {% block comment %}
+            {% include 'partials/publication/form/_add-comment.html.twig' %}
+            {% include 'partials/publication/comment/_show.html.twig' %}
+        {% endblock %}
         <a href="{{ path('app_publication') }}">Retour</a>
     </main>
 {% endblock %}

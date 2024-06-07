@@ -1,0 +1,8 @@
+{{ form_errors(addCommentForm) }}
+    {{ form_start(addCommentForm, {'attr': {'id': 'add-comment-form'}}) }}
+        {{ form_row(addCommentForm.contenu, {'attr': {'class': 'form-group-comment'}}) }}
+{#    <div class="form-group">#}
+{#        {{ form_row(addCommentForm.creation, {'attr': {'class': 'form-control'}}) }}#}
+{#    </div>#}
+    <button type="submit" class="btn btn-primary" id="comment">Commenter</button>
+{{ form_end(addCommentForm) }}

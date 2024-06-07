@@ -1,0 +1,52 @@
+#add-comment-form {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  @media (min-width: 320px) and (max-width: 991px) {
+    width: 95%;
+  }
+  @media (min-width: 991px) and (max-width: 1499px) {
+    width: 75%;
+  }
+  @media (min-width: 1499px) and (max-width: 3080px) {
+    width: 70%;
+    height: 200px;
+  }
+    div {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+      @media (min-width: 1499px) and (max-width: 3080px) {
+        width: 70%;
+        height: 200px;
+      }
+      label {
+        width: 50%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      textarea {
+        width: 40%;
+        border-radius: 7px;
+        background: transparent;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: .2s ease;
+        border: none;
+        outline: 1px solid gray;
+        &:active, &:focus {
+          border: none;
+          outline: 1px solid white;
+          transform: scale(1.1);
+          transition: .2s ease;
+          padding: 1px;
+        }
+      }
+    }
+}

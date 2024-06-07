@@ -1,0 +1,24 @@
+<div id="comments-container">
+    <div class="title-container">
+        <h2>Commentaires</h2>
+    </div>
+    <div class="comment-container">
+        {% for commentaire in publication.commentaires %}
+            <div class="glass instance">
+                <div class="avatar-container">
+                    <img src="#" alt="image d'un avatar utilisateur">
+                </div>
+                <div class="user-container">
+                    <p>{{ commentaire.utilisateur.prenom }}</p>
+                </div>
+                <div class="comment">
+                    <p>{{ commentaire.contenu|raw }}</p>
+                </div>
+                <div class="creation-container">
+                    <p>{{ commentaire.creation|date('d-m-Y') }}</p>
+                </div>
+            </div>
+
+        {% endfor %}
+    </div>
+</div>

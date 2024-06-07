@@ -3,10 +3,14 @@
 namespace App\Entity;
 
 use App\Repository\CommentaireRepository;
+use DateTime;
+use DateTimeImmutable;
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CommentaireRepository::class)]
 class Commentaire
@@ -17,13 +21,14 @@ class Commentaire
     private ?int $id = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\NotBlank]
     private ?string $contenu = null;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $creation = null;
+    #[ORM\Column(type: Types::DATETIME_IMMUTABLE)]
+    private ?DateTimeInterface $creation;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $modification = null;
+    private ?DateTimeInterface $modification;
 
     /**
      * @var Collection<int, Reponse>
@@ -34,27 +39,27 @@ class Commentaire
     #[ORM\ManyToOne(targetEntity: Publication::class, inversedBy: 'commentaires')]
     private ?Publication $publication = null;
 
-    #[ORM\ManyToOne(inversedBy: 'commentaires')]
+    #[ORM\ManyToOne(targetEntity: Utilisateur::class, inversedBy: 'commentaires')]
     private ?Utilisateur $utilisateur = null;
 
     public function __construct()
     {
         $this->reponses = new ArrayCollection();
-        $this->creation = new \DateTime();
-        $this->modification = new \DateTime();
+        $this->creation = new DateTimeImmutable();
+        $this->modification = new DateTime();
     }
 
     #[ORM\PrePersist]
     public function onPrePersist(): void
     {
-        $this->creation = new \DateTime();
+        $this->creation = new DateTime();
         $this->modification = clone $this->creation;
     }
 
     #[ORM\PreUpdate]
     public function onPreUpdate(): void
     {
-        $this->modification = new \DateTime();
+        $this->modification = new DateTime();
     }
 
     public function getId(): ?int
@@ -74,24 +79,24 @@ class Commentaire
         return $this;
     }
 
-    public function getCreation(): ?\DateTimeInterface
+    public function getCreation(): ?DateTimeInterface
     {
         return $this->creation;
     }
 
-    public function setCreation(\DateTimeInterface $creation): static
+    public function setCreation(DateTimeInterface $creation): static
     {
         $this->creation = $creation;
 
         return $this;
     }
 
-    public function getModification(): ?\DateTimeInterface
+    public function getModification(): ?DateTimeInterface
     {
         return $this->modification;
     }
 
-    public function setModification(\DateTimeInterface $modification): static
+    public function setModification(DateTimeInterface $modification): static
     {
         $this->modification = $modification;
 

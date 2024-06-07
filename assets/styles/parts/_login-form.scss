@@ -3,9 +3,7 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  @media (min-width: 320px) and (max-width: 991px) {
-    margin-top: 30%;
-  }
+  overflow-y: hidden;
   @media (min-width: 991px) and (max-width: 1499px) {
     margin-top: 10%;
   }
@@ -14,6 +12,17 @@ form {
   }
   width: 95%;
   height: 100%;
+
+  .alert {
+    position: relative;
+    color: red;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    opacity: 0;
+    animation: appear .3s ease forwards;
+  }
 
   h1 {
     @media (min-width: 320px) and (max-width: 991px) {
