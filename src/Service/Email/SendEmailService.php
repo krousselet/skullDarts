@@ -12,12 +12,11 @@ class SendEmailService
     private MailerInterface $mailer;
 
     public function __construct(
-        MailerInterface $mailer,
-        #[Autowire('%app.devemail%')] private string $from,
+        MailerInterface                                       $mailer,
+        #[Autowire('%app.devemail%')] private readonly string $from,
     )
     {
         $this->mailer = $mailer;
-        $this->from = $from;
     }
 
     /**

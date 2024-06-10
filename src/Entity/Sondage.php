@@ -24,7 +24,7 @@ class Sondage
     /**
      * @var Collection<int, Vote>
      */
-    #[ORM\OneToMany(targetEntity: Vote::class, mappedBy: 'sondage')]
+    #[ORM\OneToMany(targetEntity: Vote::class, mappedBy: 'sondage', cascade: ['remove'], orphanRemoval: true)]
     private Collection $votes;
 
     public function __construct()
@@ -91,8 +91,8 @@ class Sondage
         return $this;
     }
 
-    public function __toString(): string
-    {
-        return $this->date;
-    }
+//    public function __toString(): string
+//    {
+//        return $this->date;
+//    }
 }

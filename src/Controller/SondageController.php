@@ -27,7 +27,7 @@ class SondageController extends AbstractController
 
     #[Route('/sondages', name: 'app_sondages')]
     #[IsGranted('ROLE_USER')]
-    public function index(Request $request, SondageRepository $sondageRepository, VoteRepository $voteRepository): Response
+    public function index(SondageRepository $sondageRepository, VoteRepository $voteRepository): Response
     {
         $sondages = $sondageRepository->findAll();
         $user = $this->getUser();

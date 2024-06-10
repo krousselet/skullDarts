@@ -33,10 +33,10 @@ class Commentaire
     /**
      * @var Collection<int, Reponse>
      */
-    #[ORM\OneToMany(targetEntity: Reponse::class, mappedBy: 'commentaire')]
+    #[ORM\OneToMany(targetEntity: Reponse::class, mappedBy: 'commentaire', orphanRemoval: true, cascade: ['remove'])]
     private Collection $reponses;
 
-    #[ORM\ManyToOne(targetEntity: Publication::class, inversedBy: 'commentaires')]
+    #[ORM\ManyToOne(targetEntity: Publication::class, cascade: ['remove'], inversedBy: 'commentaires')]
     private ?Publication $publication = null;
 
     #[ORM\ManyToOne(targetEntity: Utilisateur::class, inversedBy: 'commentaires')]

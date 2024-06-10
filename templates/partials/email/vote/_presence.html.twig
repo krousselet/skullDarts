@@ -1,0 +1,13 @@
+<div class="title-container">
+    <h1>Nouveau sondage sur Skull Darts 71</h1>
+</div>
+<div class="content-container">
+    <p>Bonjour {{ user.prenom }} !</p>
+</div>
+<div class="content-container">
+    <p>Nous aimerions savoir si tu seras présent le {{ sondage.date|date('d-m-Y H:i:s') }}</p>
+    <p>Clique sur le lien ci-dessous pour nous dire si tu seras là, ou non !</p>
+</div>
+<div class="content-container">
+    <p><a href="{{ absolute_url(path('vote_sondage', {id: sondage.id})) }}">Voter</a></p>
+</div>

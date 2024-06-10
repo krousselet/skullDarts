@@ -79,6 +79,9 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(targetEntity: Commentaire::class, mappedBy: 'utilisateur')]
     private Collection $commentaires;
 
+    #[ORM\OneToOne(mappedBy: 'utilisateur', cascade: ['persist', 'remove'], orphanRemoval: true)]
+    private ?Avatar $avatar = null;
+
     public function __construct()
     {
         $this->commentaires = new ArrayCollection();

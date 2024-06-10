@@ -13,7 +13,8 @@ class Vote
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToOne(inversedBy: 'votes')]
+    #[ORM\ManyToOne(targetEntity: Sondage::class, inversedBy: 'votes')]
+    #[ORM\JoinColumn(nullable: false, onDelete: 'CASCADE')]
     private ?Sondage $sondage = null;
 
     #[ORM\Column]
